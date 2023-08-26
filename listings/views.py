@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
 def index(request):
+    """function for the views of the index."""
     listings = Listing.objects.all().filter(is_published=True)
 
     # THis is used to setup pagination.
@@ -19,7 +20,14 @@ def index(request):
 
 
 def listing(request, listing_id):
-    return render(request, 'listings/listing.html')
+    """function for a single listing to be shown"""
+    listing = get_object_or_404(Listing, pk=listing_id)
+
+    context = {
+        'listing':listing
+    }
+
+    return render(request, 'listings/listing.html', context)
 
 
 def search(request):
