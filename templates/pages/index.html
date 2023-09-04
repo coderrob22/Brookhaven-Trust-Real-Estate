@@ -12,8 +12,7 @@
           <h1 class="display-4 mb-4">
             Property Searching Just Got So Easy
           </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
+          <p class="lead">Find the property that right for you using our search tool.</p>
           <div class="search">
             <form action="{% url 'search' %}">
               <!-- Form Row 1 -->
@@ -65,6 +64,8 @@
       </div>
     </div>
   </section>
+
+  {% include 'partials/_alerts.html' %}
 
   <!-- Listings -->
   <section id="listings" class="py-5">
