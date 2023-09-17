@@ -12,17 +12,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import environ
 
-# env = environ.Env(
-#     DEBUG = (bool, False)
-# )
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -157,8 +154,10 @@ MESSAGE_TAGS = {
 
 # Set Up Email
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'app.production02@gmail.com'
-EMAIL_HOST_PASSWORD = 'ProductionMode!s@go2'
+EMAIL_HOST = os.environ.get('SECRET_HOST')
+EMAIL_PORT = os.environ.get('SECRET_PORT')
+EMAIL_HOST_USER = os.environ.get('SECRET_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('SECRET_PASS')
 EMAIL_USE_TLS = True
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
