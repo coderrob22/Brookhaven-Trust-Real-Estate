@@ -87,10 +87,11 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
 
     }
 }
@@ -161,7 +162,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('SECRET_PASS')
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
