@@ -168,3 +168,5 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 #     from .local_settings import *
 # except ImportError:
 #     pass
+
+CSRF_TRUSTED_ORIGINS = ['https://brookhaven-trust-real-estate.up.railway.app/']
