@@ -170,3 +170,4 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 #     pass
 
 CSRF_TRUSTED_ORIGINS = ['https://brookhaven-trust-real-estate.up.railway.app/']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
