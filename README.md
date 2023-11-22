@@ -1,6 +1,3 @@
-# Brookhaven-Trust-Real-Estate
-Django real-estate app for Brookhaven Trust, in Brookhaven, GA
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
